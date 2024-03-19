@@ -39,8 +39,14 @@ function getPromise(number) {
  */
 function getPromiseResult(source) {
   return source.then(
-    () => 'success',
-    () => 'fail'
+    () =>
+      new Promise((resolve) => {
+        resolve('success');
+      }),
+    () =>
+      new Promise((resolve) => {
+        resolve('fail');
+      })
   );
 }
 
